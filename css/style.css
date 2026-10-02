@@ -1,0 +1,404 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap');
+
+/* ========== VARIÁVEIS ========== */
+:root {
+  --azul-profundo: #0B3C5D;
+  --azul-medio: #1D70A2;
+  --ciano: #2EC4E6;
+  --gelo: #F2F8FB;
+  --texto: #1F2D3A;
+  --whatsapp: #128C4A;
+  --whatsapp-hover: #0E6F3A;
+  --alerta: #E4572E;
+
+  --fonte-titulo: 'Poppins', sans-serif;
+  --fonte-texto: 'Inter', sans-serif;
+
+  --raio: 12px;
+  --largura-max: 1100px;
+}
+
+/* ========== RESET E BASE ========== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fonte-texto);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--texto);
+  background: #fff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1, h2, h3, button {
+  font-family: var(--fonte-titulo);
+}
+
+ul {
+  list-style: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--ciano);
+  outline-offset: 3px;
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 2.5rem;
+  background: var(--azul-profundo);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.navbar h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-right: auto; /* empurra o menu para a direita */
+}
+
+.navbar ul {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar a {
+  position: relative;
+  padding-bottom: 4px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--ciano);
+  transition: width 0.25s;
+}
+
+.navbar a:hover {
+  color: var(--ciano);
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* ========== HERO ========== */
+.hero {
+  position: relative;
+  min-height: 620px;
+  padding: 4rem 2.5rem;
+  background: linear-gradient(135deg, var(--azul-profundo), var(--azul-medio));
+  color: #fff;
+}
+
+.hero h2 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.15;
+  max-width: 14em;
+  margin-bottom: 0.75rem;
+}
+
+.hero h3 {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 500;
+  color: var(--ciano);
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  max-width: 34em;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.hero h2,
+.hero h3,
+.hero p {
+  max-width: 52%;
+}
+
+/* Se o <picture> tiver mais de uma <img>, mostra só a primeira */
+#imagem-hero {
+  position: absolute;
+  right: 2.5rem;
+  bottom: 0;
+  height: 92%;
+  width: auto;
+  max-width: 42%;
+  object-fit: contain;
+  object-position: right bottom;
+}
+
+/* ========== BOTÕES ========== */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin: 0 0.5rem 0.5rem 0;
+}
+
+button a {
+  display: inline-block;
+  padding: 0.9rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+
+button a:hover {
+  transform: translateY(-2px);
+}
+
+.whatsapp a,
+.whatasapp a { /* mantém a grafia errada do HTML funcionando */
+  background: var(--whatsapp);
+  color: #fff;
+}
+
+.whatsapp a:hover,
+.whatasapp a:hover {
+  background: var(--whatsapp-hover);
+}
+
+.telefone a {
+  background: var(--ciano);
+  color: var(--azul-profundo);
+}
+
+.telefone a:hover {
+  background: #fff;
+}
+
+/* ========== CONTEÚDO PRINCIPAL ========== */
+.main main {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+}
+
+.main article {
+  padding: 3.5rem 2.5rem;
+}
+
+.main h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.25;
+  color: var(--azul-medio);
+  margin-bottom: 1rem;
+}
+
+.main h2::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 4px;
+  margin-top: 0.6rem;
+  border-radius: 2px;
+  background: var(--ciano);
+}
+
+.main h3 {
+  font-size: 1.2rem;
+  color: var(--azul-profundo);
+  margin: 1.5rem 0 0.4rem;
+}
+
+.main p {
+  max-width: 65ch;
+}
+
+/* ----- Serviços ----- */
+.servicos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.servicos img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--raio);
+  margin-bottom: 1rem;
+}
+
+.servicos h2 {
+  font-size: 1.25rem;
+}
+
+
+/* ----- Dicas e Atendimento (listas) ----- */
+.dicas ul,
+.atendimento ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.dicas li,
+.atendimento li {
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border-left: 4px solid var(--ciano);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(11, 60, 93, 0.08);
+  font-weight: 500;
+}
+
+.atendimento li {
+  text-align: center;
+  border-left: none;
+  border-bottom: 4px solid var(--ciano);
+}
+
+/* ----- Seções com fundo alternado ----- */
+.dicas {
+  background: var(--gelo);
+}
+
+/* ----- Chamada final ----- */
+.agendamento {
+  background: var(--azul-profundo);
+  color: #fff;
+  text-align: center;
+}
+
+.agendamento h2 {
+  color: #fff;
+}
+
+.agendamento h2::after {
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--alerta);
+}
+
+.agendamento p {
+  margin: 0 auto 2rem;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 2.5rem 1.5rem;
+  background: #072A42;
+  color: #cfe3ee;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+footer img {
+  width: 90px;
+  margin-bottom: 0.5rem;
+  border-radius: 50%;
+}
+
+footer a {
+  color: var(--ciano);
+}
+
+/* ========== RESPONSIVO ========== */
+@media (max-width: 1200px) {
+  .servicos {
+    grid-template-columns: 1fr;
+  }
+
+  .servicos img {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 800px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+  }
+
+  .navbar h1 {
+    margin-right: 0;
+    font-size: 1.25rem;
+  }
+
+  .navbar ul {
+    width: 100%;
+    justify-content: center;
+    gap: 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .hero {
+    min-height: 0;
+    padding: 2.5rem 1.25rem;
+    text-align: center;
+  }
+
+  .hero h2,
+  .hero h3,
+  .hero p {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #imagem-hero {
+    position: static;     
+    display: block;
+    height: auto;
+    width: 80%;
+    max-width: 340px;
+    margin: 2rem auto 0;
+  }
+
+
+  .main article {
+    padding: 2.5rem 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
